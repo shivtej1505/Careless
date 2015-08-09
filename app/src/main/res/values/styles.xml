@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light">
+        <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/myActionBar</item>
+    </style>
+
+    <style name="myActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+    </style>
+</resources>

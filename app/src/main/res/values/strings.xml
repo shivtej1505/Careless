@@ -1,0 +1,11 @@
+<resources>
+    <!-- App specifics -->
+    <string name="app_name">Careless</string>
+    <string name="app_tag">Makes you careless</string>
+
+    <!-- Commonly used strings -->
+
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+</resources>
