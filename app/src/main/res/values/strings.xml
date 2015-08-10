@@ -4,8 +4,34 @@
     <string name="app_tag">Makes you careless</string>
 
     <!-- Commonly used strings -->
+    <string name="ans">Answer</string>
+    <string name="submit">Submit</string>
+    <string name="save">Save</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- first run string -->
+    <string name="brCareless">Be Careless</string>
+    <string name="kickStart">Kickstart by saving details</string>
+    <string name="passHint">Enter your password.Min length: 8 </string>
+    <string name="passAgainHint">Confirm password</string>
+    <string name="chooseHintQ">Pick an question</string>
+    <string name="fillUpHintA">Fill up answer</string>
+
+    <!-- hint questions -->
+    <string-array name="hintQ">
+        <item>What is your favorite color?</item>
+        <item>What is your favorite food?</item>
+        <item>What is your mother's maiden name?</item>
+        <item>Who is your favorite teacher?</item>
+        <item>What is your favorite game?</item>
+    </string-array>
+    <string name="title_activity_app_entry">appEntry</string>
+
+
+
 
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+
+
 </resources>
