@@ -16,10 +16,10 @@ import android.widget.Toast;
 
 public class firstRun extends Activity {
 
-    SharedPreferences preferences = getPreferences(MODE_PRIVATE);
     @Override
     protected void onStart() {
 
+        final SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         if(preferences.getBoolean(easyShort.prefs.FIRST_RUN_DONE,false)) {
             Intent jmp = new Intent(firstRun.this,appEntry.class);
             startActivity(jmp);
@@ -32,6 +32,9 @@ public class firstRun extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // get SharedPreference
+        final SharedPreferences preferences = getPreferences(MODE_PRIVATE);
 
         // creating reference
         setContentView(R.layout.activity_first_run);

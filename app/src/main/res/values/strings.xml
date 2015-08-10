@@ -7,7 +7,11 @@
     <string name="ans">Answer</string>
     <string name="submit">Submit</string>
     <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
     <string name="action_settings">Settings</string>
+    <string name="enterPass">Enter your password</string>
+    <string name="forgetPass">Forget password</string>
 
     <!-- first run string -->
     <string name="brCareless">Be Careless</string>
@@ -21,13 +25,14 @@
     <string-array name="hintQ">
         <item>What is your favorite color?</item>
         <item>What is your favorite food?</item>
-        <item>What is your mother's maiden name?</item>
+        <item>What is your mother\'s maiden name?</item>
         <item>Who is your favorite teacher?</item>
         <item>What is your favorite game?</item>
     </string-array>
     <string name="title_activity_app_entry">appEntry</string>
 
-
+    <!-- entryApp string -->
+    <string name="ansQues">Answer the question</string>
 
 
 
