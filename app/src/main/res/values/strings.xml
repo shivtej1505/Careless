@@ -10,6 +10,8 @@
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
     <string name="action_settings">Settings</string>
+    <string name="action_credit">Credits</string>
+    <string name="action_bugs">Bugs</string>
     <string name="enterPass">Enter your password</string>
     <string name="forgetPass">Forget password</string>
 
@@ -20,6 +22,8 @@
     <string name="passAgainHint">Confirm password</string>
     <string name="chooseHintQ">Pick an question</string>
     <string name="fillUpHintA">Fill up answer</string>
+    <string name="savingData">Saving data…</string>
+
 
     <!-- hint questions -->
     <string-array name="hintQ">

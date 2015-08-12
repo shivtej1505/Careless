@@ -19,9 +19,12 @@
         </activity>
         <activity
             android:name=".entryApp"
-            android:label="EnterApp"
+            android:label="Careless"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".docShower"
+            android:label="DocShower"/>
     </application>
 
 </manifest>

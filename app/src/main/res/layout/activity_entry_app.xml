@@ -34,6 +34,7 @@
 
         <EditText
             android:id="@+id/entryPass"
+            android:inputType="textPassword"
             android:layout_marginTop="30dp"
             android:hint="@string/enterPass"
             android:layout_width="match_parent"
@@ -42,16 +43,25 @@
         <Button
             android:id="@+id/enterBtn"
             android:textColor="@color/white"
+            android:paddingRight="30dp"
+            android:paddingEnd="30dp"
             android:background="@color/teal_a700"
             android:layout_marginTop="25dp"
             android:text="@string/enterPass"
             android:textStyle="bold"
+            android:drawableRight="@drawable/ic_action_forward"
+            android:drawableEnd="@drawable/ic_action_forward"
+            android:drawablePadding="-30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <Button
             android:id="@+id/forgetBtn"
             android:textColor="@color/white"
             android:layout_marginTop="20dp"
+            android:paddingRight="30dp"
+            android:paddingEnd="30dp"
+            android:drawableRight="@drawable/ic_action_help"
+            android:drawablePadding="-30dp"
             android:text="@string/forgetPass"
             android:background="@color/teal_a700"
             android:textStyle="bold"

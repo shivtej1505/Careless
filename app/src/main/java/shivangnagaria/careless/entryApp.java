@@ -69,7 +69,7 @@ public class entryApp extends Activity {
             }
         });
     }
-    /*
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_app_entry,menu);
@@ -84,5 +84,5 @@ public class entryApp extends Activity {
         }
         return super.onMenuItemSelected(featureId, item);
     }
-    */
+
 }
