@@ -1,12 +1,12 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light">
-        <!-- Customize your theme here. -->
+    <!--     java.lang.RuntimeException: Binary XML file line #19: You must supply a layout_height attribute. -->
+    <!-- TODO: get rid from this error -->
+    <style name="AppTheme" parent="@android:style/Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/myActionBar</item>
     </style>
-
-    <style name="myActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+    <style name="myActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/blue_500</item>
     </style>
 </resources>

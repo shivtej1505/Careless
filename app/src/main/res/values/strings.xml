@@ -29,7 +29,6 @@
         <item>Who is your favorite teacher?</item>
         <item>What is your favorite game?</item>
     </string-array>
-    <string name="title_activity_app_entry">appEntry</string>
 
     <!-- entryApp string -->
     <string name="ansQues">Answer the question</string>

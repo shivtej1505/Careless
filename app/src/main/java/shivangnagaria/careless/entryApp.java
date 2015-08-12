@@ -2,7 +2,6 @@ package shivangnagaria.careless;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,7 +23,7 @@ public class entryApp extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_app_entry);
+        setContentView(R.layout.activity_entry_app);
 
         // get shared preference
         final SharedPreferences preferences = getPreferences(MODE_PRIVATE);
@@ -70,7 +69,7 @@ public class entryApp extends Activity {
             }
         });
     }
-
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_app_entry,menu);
@@ -85,4 +84,5 @@ public class entryApp extends Activity {
         }
         return super.onMenuItemSelected(featureId, item);
     }
+    */
 }

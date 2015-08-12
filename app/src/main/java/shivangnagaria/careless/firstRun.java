@@ -16,13 +16,15 @@ import android.widget.Toast;
 
 public class firstRun extends Activity {
 
+
     @Override
     protected void onStart() {
 
         final SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         if(preferences.getBoolean(easyShort.prefs.FIRST_RUN_DONE,false)) {
-            Intent jmp = new Intent(firstRun.this,appEntry.class);
+            Intent jmp = new Intent(firstRun.this,entryApp.class);
             startActivity(jmp);
+            finish();
             return;
         }
         super.onStart();
@@ -45,7 +47,8 @@ public class firstRun extends Activity {
         Button saveBtn = (Button) findViewById(R.id.saveBtn);
 
         // setting adapter to spinner
-        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(firstRun.this,R.array.hintQ,R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(
+                firstRun.this,R.array.hintQ,R.layout.dropdown_item);
         spinQ.setAdapter(arrayAdapter);
         spinQ.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -64,21 +67,22 @@ public class firstRun extends Activity {
             public void onClick(View v) {
                 ansE = ansQ.getText().toString();
                 if(!(pass.getText().toString().equals(passAgain.getText().toString()))) {
-                    if(pass.getText().toString().length() < 8 || passAgain.getText().toString().length() < 8 ) {
-                        Toast.makeText(firstRun.this, "Minimum password length 8", Toast.LENGTH_SHORT).show();
-                    } else {
                         Toast.makeText(firstRun.this,"Password didn't match",Toast.LENGTH_SHORT).show();
-                    }
-                } else if(ansE.equals("")) {
+                } else if(pass.getText().toString().length() < 8 || passAgain.getText().toString().length() < 8 ) {
+                    Toast.makeText(firstRun.this, "Minimum password length 8", Toast.LENGTH_SHORT).show();
+                }else if(ansE.equals("")) {
                     Toast.makeText(firstRun.this,"Please provide answer",Toast.LENGTH_SHORT).show();
                 } else {
                     // save details in SharedPreferences
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString(easyShort.prefs.HINT_QUES,pickQ);
                     editor.putString(easyShort.prefs.HINT_ANS,ansE);
-                    editor.putString(easyShort.prefs.PASS,pass.getText().toString());
-                    editor.putBoolean(easyShort.prefs.FIRST_RUN_DONE,true);
+                    editor.putString(easyShort.prefs.PASS, pass.getText().toString());
+                    editor.putBoolean(easyShort.prefs.FIRST_RUN_DONE, true);
                     editor.commit();
+
+                    Intent jmpToentry = new Intent(firstRun.this,entryApp.class);
+                    startActivity(jmpToentry);
                 }
             }
         });
@@ -87,8 +91,8 @@ public class firstRun extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_first_run, menu);
-        return true;
+        //getMenuInflater().inflate(R.menu.menu_first_run, menu);
+        return false;
     }
 
     @Override
@@ -105,4 +109,5 @@ public class firstRun extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
