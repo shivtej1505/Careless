@@ -14,6 +14,7 @@
     <string name="action_bugs">Bugs</string>
     <string name="enterPass">Enter your password</string>
     <string name="forgetPass">Forget password</string>
+    <string name="next">Next</string>
 
     <!-- first run string -->
     <string name="brCareless">Be Careless</string>
@@ -37,6 +38,12 @@
     <!-- entryApp string -->
     <string name="ansQues">Answer the question</string>
 
+    <!-- add new item -->
+    <string name="addNew">Add new object</string>
+    <string name="typeSelect">Select type</string>
+    <string name="yetTo">Yet to be decided</string>
+    <string name="policyNum">Enter policy number</string>
+    <string name="objIdHint">Numbers only</string>
 
 
     <string name="hello_world">Hello world!</string>

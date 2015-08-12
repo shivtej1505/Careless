@@ -2,6 +2,7 @@ package shivangnagaria.careless;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
@@ -117,6 +118,19 @@ public class firstRun extends Activity {
 
             SQLiteDatabase db = new dbOpenHelper(firstRun.this).getWritableDatabase();
             new dbOpenHelper(firstRun.this).onCreate(db);
+
+            ContentValues values = new ContentValues();
+            values.put(dbOpenHelper.COLUMN_ID,1);
+            values.put(dbOpenHelper.COLUMN_TYPE,"Fixed deposit");
+            values.put(dbOpenHelper.COLUMN_MAMOUNT,1001);
+            values.put(dbOpenHelper.COLUMN_MDATE,"1995-05-15");
+            values.put(dbOpenHelper.COLUMN_PAMOUNT,1001);
+            values.put(dbOpenHelper.COLUMN_PDATE,"1995-05-15");
+            values.put(dbOpenHelper.COLUMN_SPCF,"shivang nagaria");
+
+            db.insert(dbOpenHelper.TABLE_NAME,null,values);
+            values.clear();
+            db.close();
 
             return null;
         }

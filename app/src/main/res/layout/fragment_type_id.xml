@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:text="@string/addNew"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="25dp"
+        android:textSize="15sp"
+        android:textColor="@color/grey_500"
+        android:text="@string/typeSelect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Spinner
+        android:id="@+id/objType"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="@string/yetTo"
+            android:textSize="35sp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:textColor="@color/grey_400"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textView" />
+
+        <TextView
+            android:id="@+id/objIdHead"
+            android:textSize="15sp"
+            android:textColor="@color/grey_500"
+            android:text="@string/policyNum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/objId"
+            android:layout_marginTop="20dp"
+            android:hint="@string/objIdHint"
+            android:inputType="number"
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/objIdHead"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <Button
+            android:layout_width="140dp"
+            android:background="@color/green_700"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:drawableEnd="@drawable/ic_action_cancel"
+            android:drawableRight="@drawable/ic_action_cancel"
+            android:drawablePadding="-15dp"
+            android:paddingEnd="15dp"
+            android:paddingRight="15dp"
+            android:textColor="@color/white"
+            android:id="@+id/cancelFrag"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/objId"
+            android:layout_toRightOf="@+id/textView"
+            android:layout_toEndOf="@+id/textView"
+            android:layout_marginTop="92dp" />
+
+        <Button
+            android:layout_width="140dp"
+            android:background="@color/green_700"
+            android:layout_height="wrap_content"
+            android:text="@string/next"
+            android:id="@+id/nextFrag"
+            android:textColor="@color/white"
+            android:drawableEnd="@drawable/ic_action_forward"
+            android:drawableRight="@drawable/ic_action_forward"
+            android:drawablePadding="-15dp"
+            android:paddingEnd="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignTop="@+id/cancelFrag"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

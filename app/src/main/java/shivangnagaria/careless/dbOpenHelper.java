@@ -24,6 +24,7 @@ public class dbOpenHelper extends SQLiteOpenHelper {
     final static String dbName = "carelesslyHeldDB";
 
     // TODO: create table if not exists
+
     final private static String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME +
             " ( " + COLUMN_ID + " INTEGER NOT NULL " + ", " +
             COLUMN_TYPE + " TEXT NOT NULL " + ", " +
@@ -34,6 +35,9 @@ public class dbOpenHelper extends SQLiteOpenHelper {
             COLUMN_SPCF + " TEXT NOT NULL " + ");" ;
 
     final private Context mContext;
+
+    public static String[] columns = {COLUMN_ID,COLUMN_TYPE,COLUMN_MAMOUNT,COLUMN_MDATE,
+            COLUMN_PAMOUNT,COLUMN_PDATE,COLUMN_SPCF};
 
     public dbOpenHelper(Context context) {
         super(context, dbName,null,VERSION);
