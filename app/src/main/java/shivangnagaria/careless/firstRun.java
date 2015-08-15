@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -108,8 +109,11 @@ public class firstRun extends Activity {
         protected Void doInBackground(Void... params) {
 
             // saving details
+            Log.i(easyShort.TAG,pickQ);
+            Log.i(easyShort.TAG,ansE);
+            Log.i(easyShort.TAG, userPassword);
 
-            SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+            SharedPreferences.Editor editor = getSharedPreferences(easyShort.prefs.PREFS_NAME,MODE_PRIVATE).edit();
             editor.putString(easyShort.prefs.HINT_QUES, pickQ);
             editor.putString(easyShort.prefs.HINT_ANS, ansE);
             editor.putString(easyShort.prefs.PASS, userPassword);

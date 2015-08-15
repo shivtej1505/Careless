@@ -37,6 +37,7 @@
 
     <!-- entryApp string -->
     <string name="ansQues">Answer the question</string>
+    <string name="putHint">What is your answer?</string>
 
     <!-- add new item -->
     <string name="addNew">Add new object</string>
@@ -45,7 +46,26 @@
     <string name="policyNum">Enter policy number</string>
     <string name="objIdHint">Numbers only</string>
 
+    <!-- doc shower strings -->
+    <string name="imgDec">Image according to doc type</string>
+    <string name="mobNo">Mobile No.</string>
+    <string name="licNo">Licence No.</string>
+    <string name="polNo">Policy No.</string>
 
+    <string name="bank">Bank</string>
+    <string name="operator">Operator</string>
+    <string name="merchant">Merchant</string>
+
+
+    <string name="matAmt">Maturity Amount</string>
+    <string name="recharge">Recharge of</string>
+    <string name="renewal">Renewal of</string>
+
+    <string name="matDate">Date of Maturity</string>
+    <string name="recDate">Recharge date</string>
+    <string name="renDate">Renewal date</string>
+
+    <string name="premium">Premium</string>
     <string name="hello_world">Hello world!</string>
 
 
