@@ -15,6 +15,8 @@
     <string name="enterPass">Enter your password</string>
     <string name="forgetPass">Forget password</string>
     <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="done">Done</string>
 
     <!-- first run string -->
     <string name="brCareless">Be Careless</string>
@@ -45,6 +47,8 @@
     <string name="yetTo">Yet to be decided</string>
     <string name="policyNum">Enter policy number</string>
     <string name="objIdHint">Numbers only</string>
+    <string name="entermAmt">Enter maturity amount</string>
+    <string name="enterpAmt">Enter premium amount</string>
 
     <!-- doc shower strings -->
     <string name="imgDec">Image according to doc type</string>
@@ -66,6 +70,7 @@
     <string name="renDate">Renewal date</string>
 
     <string name="premium">Premium</string>
+    <string name="patDate">Premium date</string>
     <string name="hello_world">Hello world!</string>
 
 
