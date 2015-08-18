@@ -1,10 +1,53 @@
 package shivangnagaria.careless;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.os.Bundle;
+import android.app.FragmentManager;
 
 /**
  * Created on 13/8/15.
  */
 public class addNew extends Activity {
 
+    private final Fragment typeIdFragment = new typeId_Fragment();
+    private final Fragment mAmtDateFragment = new mAmtDate_spf_Fragment();
+    private final Fragment pAmtDateFragment = new pAmtDate_done_Fragment();
+
+    private FragmentManager mFragmentManager;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.addnew_doc);
+
+        mFragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.container,typeIdFragment);
+        fragmentTransaction.commit();
+    }
+
+    public void nextFrag(int FragmentNo) {
+        if(FragmentNo == 1) {
+            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container, mAmtDateFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        } else if(FragmentNo == 2) {
+            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container, pAmtDateFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+    }
+
+    public void prevFrag(int FragmentNo) {
+        mFragmentManager.popBackStackImmediate();
+    }
+
+    public void terminateActivity() {
+        finish();
+    }
 }

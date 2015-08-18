@@ -69,6 +69,7 @@
 
 
         <Button
+            android:id="@+id/cancelFrag_type_id"
             android:layout_width="140dp"
             android:background="@color/green_700"
             android:layout_height="wrap_content"
@@ -79,7 +80,6 @@
             android:paddingEnd="15dp"
             android:paddingRight="15dp"
             android:textColor="@color/white"
-            android:id="@+id/cancelFrag_type_id"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_below="@+id/objId"
@@ -88,11 +88,11 @@
             android:layout_marginTop="92dp" />
 
         <Button
+            android:id="@+id/nextFrag"
             android:layout_width="140dp"
             android:background="@color/green_700"
             android:layout_height="wrap_content"
             android:text="@string/next"
-            android:id="@+id/nextFrag"
             android:textColor="@color/white"
             android:drawableEnd="@drawable/ic_action_forward"
             android:drawableRight="@drawable/ic_action_forward"
