@@ -26,7 +26,7 @@ public class firstRun extends Activity {
 
         super.onStart();
 
-        final SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        final SharedPreferences preferences = getSharedPreferences(easyShort.prefs.PREFS_NAME,MODE_PRIVATE);
         if(preferences.getBoolean(easyShort.prefs.FIRST_RUN_DONE,false)) {
             Intent jmp = new Intent(firstRun.this,entryApp.class);
             startActivity(jmp);
@@ -110,7 +110,7 @@ public class firstRun extends Activity {
 
             // saving details
             Log.i(easyShort.TAG,pickQ);
-            Log.i(easyShort.TAG,ansE);
+            Log.i(easyShort.TAG, ansE);
             Log.i(easyShort.TAG, userPassword);
 
             SharedPreferences.Editor editor = getSharedPreferences(easyShort.prefs.PREFS_NAME,MODE_PRIVATE).edit();
@@ -132,7 +132,9 @@ public class firstRun extends Activity {
             values.put(dbOpenHelper.COLUMN_PDATE,"1995-05-15");
             values.put(dbOpenHelper.COLUMN_SPCF,"shivang nagaria");
 
-            db.insert(dbOpenHelper.TABLE_NAME,null,values);
+            long lol = db.insert(dbOpenHelper.TABLE_NAME,null,values);
+            Log.i(easyShort.TAG,"data inserted");
+            Log.i(easyShort.TAG,""+lol);
             values.clear();
             db.close();
 

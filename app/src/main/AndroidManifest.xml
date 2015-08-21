@@ -25,6 +25,10 @@
         <activity
             android:name=".docShower"
             android:label="DocShower"/>
+
+        <activity
+            android:name=".addNew"
+            android:label="Add new doc"/>
     </application>
 
 </manifest>

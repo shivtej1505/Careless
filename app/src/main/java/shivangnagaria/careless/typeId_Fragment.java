@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -14,7 +15,7 @@ import android.widget.Spinner;
  */
 public class typeId_Fragment extends Fragment {
 
-    addNew AddNew = new addNew();
+
 
     Spinner docTypeSpin;
     EditText docPolNo;
@@ -29,8 +30,16 @@ public class typeId_Fragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
         docTypeSpin = (Spinner) getActivity().findViewById(R.id.objType);
         docPolNo = (EditText) getActivity().findViewById(R.id.objId);
+
+        docTypeSpin.setAdapter(
+                ArrayAdapter.createFromResource(
+                        getActivity().getApplicationContext(),
+                        R.array.docTypes,
+                        R.layout.dropdown_item
+                ));
 
         cancelBtn = (Button) getActivity().findViewById(R.id.cancelFrag_type_id);
         nextBtn = (Button) getActivity().findViewById(R.id.nextFrag);
@@ -38,14 +47,14 @@ public class typeId_Fragment extends Fragment {
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddNew.prevFrag(1);
+                addNew.prevFrag(1);
             }
         });
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddNew.nextFrag(1);
+                addNew.nextFrag(1);
             }
         });
     }

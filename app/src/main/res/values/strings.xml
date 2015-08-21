@@ -37,6 +37,20 @@
         <item>What is your favorite game?</item>
     </string-array>
 
+    <!-- doc types -->
+    <string-array name="docTypes">
+        <item>Fixed deposit</item>
+        <item>Insurance</item>
+        <item>Vehicle Insurance</item>
+        <item>Recharge</item>
+        <item>Renewal</item>
+        <item>Mutual funds</item>
+        <item>Loan</item>
+        <item>Others</item>
+    </string-array>
+
+
+
     <!-- entryApp string -->
     <string name="ansQues">Answer the question</string>
     <string name="putHint">What is your answer?</string>

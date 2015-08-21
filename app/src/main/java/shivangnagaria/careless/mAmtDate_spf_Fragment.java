@@ -12,7 +12,6 @@ import android.widget.Button;
  */
 public class mAmtDate_spf_Fragment extends Fragment {
 
-    addNew AddNew = new addNew();
 
     Button backBtn,nextBtn;
     @Override
@@ -30,14 +29,14 @@ public class mAmtDate_spf_Fragment extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddNew.prevFrag(2);
+                addNew.prevFrag(2);
             }
         });
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddNew.nextFrag(2);
+                addNew.nextFrag(2);
             }
         });
     }
