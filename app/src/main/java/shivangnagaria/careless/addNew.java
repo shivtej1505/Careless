@@ -3,6 +3,7 @@ package shivangnagaria.careless;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.FragmentManager;
 import android.widget.ArrayAdapter;
@@ -17,7 +18,6 @@ public class addNew extends Activity {
     private static final Fragment pAmtDateFragment = new pAmtDate_done_Fragment();
 
     private static FragmentManager mFragmentManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

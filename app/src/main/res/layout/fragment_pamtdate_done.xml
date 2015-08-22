@@ -27,15 +27,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:id="@+id/myDataType"
                 android:text="@string/typeSelect"
                 android:textSize="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/myDataId"
                 android:text="@string/polNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/myDataSpc"
                 android:text="@string/bank"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

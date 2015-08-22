@@ -60,6 +60,8 @@
     <string name="typeSelect">Select type</string>
     <string name="yetTo">Yet to be decided</string>
     <string name="policyNum">Enter policy number</string>
+    <string name="spfications">Enter specifications</string>
+    <string name="particulars">Any Particulars</string>
     <string name="objIdHint">Numbers only</string>
     <string name="entermAmt">Enter maturity amount</string>
     <string name="enterpAmt">Enter premium amount</string>
