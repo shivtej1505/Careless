@@ -1,6 +1,5 @@
 package shivangnagaria.careless;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -36,11 +35,11 @@ public class docShower extends ListActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            /*
+            progressDialog = new ProgressDialog(docShower.this);
             progressDialog.setMessage("Reading database");
             progressDialog.setIndeterminate(false);
             progressDialog.setCancelable(false);
-            progressDialog.show();*/
+            progressDialog.show();
         }
 
         @Override
@@ -79,7 +78,7 @@ public class docShower extends ListActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            //progressDialog.dismiss();
+            progressDialog.dismiss();
         }
     }
     @Override

@@ -29,7 +29,7 @@ public class entryApp extends Activity {
 
         // get shared preference
         final SharedPreferences preferences = getSharedPreferences(easyShort.prefs.PREFS_NAME,MODE_PRIVATE);
-        final String userPass = preferences.getString(easyShort.prefs.PASS, "password");
+            final String userPass = preferences.getString(easyShort.prefs.PASS, "password");
 
         entryPass = (EditText) findViewById(R.id.entryPass);
         Button entryBtn = (Button) findViewById(R.id.enterBtn);
@@ -45,6 +45,7 @@ public class entryApp extends Activity {
                     Intent jmpToDocs = new Intent(entryApp.this,docShower.class);
                     startActivity(jmpToDocs);
                 } else {
+                    entryPass.setText(null);
                     Toast.makeText(entryApp.this,"Wrong password!!!",Toast.LENGTH_SHORT).show();
                 }
             }

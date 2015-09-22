@@ -56,15 +56,25 @@
     <string name="putHint">What is your answer?</string>
 
     <!-- add new item -->
-    <string name="addNew">Add new object</string>
+    <string name="addNew">Add new item</string>
     <string name="typeSelect">Select type</string>
     <string name="yetTo">Yet to be decided</string>
     <string name="policyNum">Enter policy number</string>
-    <string name="spfications">Enter specifications</string>
+    <string name="specifications">Enter specifications</string>
     <string name="particulars">Any Particulars</string>
     <string name="objIdHint">Numbers only</string>
     <string name="entermAmt">Enter maturity amount</string>
     <string name="enterpAmt">Enter premium amount</string>
+
+
+    <!-- policyNum array based on type chosen -->
+    <string-array name="policyNum">
+        <item>Enter identification number</item>
+        <item>Enter policy number</item>
+        <item>Enter license number</item>
+        <item>Enter mobile number</item>
+    </string-array>
+
 
     <!-- doc shower strings -->
     <string name="imgDec">Image according to doc type</string>

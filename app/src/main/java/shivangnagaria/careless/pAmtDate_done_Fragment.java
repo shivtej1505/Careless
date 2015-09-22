@@ -3,10 +3,10 @@ package shivangnagaria.careless;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
-import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +21,7 @@ public class pAmtDate_done_Fragment extends Fragment {
 
     TextView dataType,dataId,dataSpf;
     Button backBtn,doneBtn;
-    SharedPreferences preferences;
+    Bundle bundle;
     private ProgressDialog progressDialog;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,10 +38,11 @@ public class pAmtDate_done_Fragment extends Fragment {
         dataId = (TextView) getActivity().findViewById(R.id.myDataId);
         dataType = (TextView) getActivity().findViewById(R.id.myDataType);
         dataSpf = (TextView) getActivity().findViewById(R.id.myDataSpc);
-
-        dataId.setText(preferences.getString(easyShort.fragsPrefs.FRAGPREFS_ID,"Policy No."));
-        dataType.setText(preferences.getString(easyShort.fragsPrefs.FRAGPREFS_TYPE,"Select Type"));
-        dataSpf.setText(preferences.getString(easyShort.fragsPrefs.FRAGPREFS_SPF,"Bank"));
+        
+        bundle = getArguments();
+        dataId.setText(bundle.getString(easyShort.fragsPrefs.FRAGPREFS_ID,"Policy No."));
+        dataType.setText(bundle.getString(easyShort.fragsPrefs.FRAGPREFS_TYPE,"Select Type"));
+        dataSpf.setText(bundle.getString(easyShort.fragsPrefs.FRAGPREFS_SPF,"Bank"));
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,11 +64,12 @@ public class pAmtDate_done_Fragment extends Fragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            /*
             progressDialog = new ProgressDialog(getActivity().getApplicationContext());
             progressDialog.setMessage("Saving data");
             progressDialog.setIndeterminate(false);
             progressDialog.setCancelable(false);
-            progressDialog.show();
+            progressDialog.show();*/
         }
 
         @Override
@@ -75,21 +77,22 @@ public class pAmtDate_done_Fragment extends Fragment {
             SQLiteDatabase db = new dbOpenHelper(getActivity().getApplicationContext()).getWritableDatabase();
             dbOpenHelper helper = new dbOpenHelper(getActivity().getApplicationContext());
             ContentValues values = new ContentValues();
-            values.put(helper.COLUMN_ID,preferences.getString(easyShort.fragsPrefs.FRAGPREFS_ID,""));
-            values.put(helper.COLUMN_TYPE,preferences.getString(easyShort.fragsPrefs.FRAGPREFS_TYPE,""));
-            values.put(helper.COLUMN_SPCF,preferences.getString(easyShort.fragsPrefs.FRAGPREFS_SPF,""));
+            values.put(helper.COLUMN_ID,bundle.getString(easyShort.fragsPrefs.FRAGPREFS_ID,""));
+            values.put(helper.COLUMN_TYPE,bundle.getString(easyShort.fragsPrefs.FRAGPREFS_TYPE,""));
+            values.put(helper.COLUMN_SPCF,bundle.getString(easyShort.fragsPrefs.FRAGPREFS_SPF,""));
             values.put(helper.COLUMN_MAMOUNT,1000);
             values.put(helper.COLUMN_MDATE,1995-05-15);
             values.put(helper.COLUMN_PAMOUNT,1995-05-15);
-            values.put(helper.COLUMN_PDATE,1000);
-            db.insert(helper.TABLE_NAME,null,values);
+            values.put(helper.COLUMN_PDATE, 1000);
+            long success = db.insert(helper.TABLE_NAME,null,values);
+            Log.i(easyShort.TAG,"Success:"+success);
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            progressDialog.dismiss();
+            //progressDialog.dismiss();
         }
     }
 }

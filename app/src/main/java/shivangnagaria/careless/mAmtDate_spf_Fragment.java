@@ -17,7 +17,6 @@ public class mAmtDate_spf_Fragment extends Fragment {
 
     TextView dataType,dataId,dataSpf;
     Button backBtn,nextBtn;
-    SharedPreferences preferences;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_mamtdate_spf,container,false);
@@ -27,16 +26,16 @@ public class mAmtDate_spf_Fragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        preferences = getActivity().getSharedPreferences(easyShort.fragsPrefs.FRAGPREFS_NAME, Context.MODE_PRIVATE);
         backBtn = (Button) getActivity().findViewById(R.id.cancelFrag_m_spf);
         nextBtn = (Button) getActivity().findViewById(R.id.nextFrag);
         dataId = (TextView) getActivity().findViewById(R.id.myDataId);
         dataType = (TextView) getActivity().findViewById(R.id.myDataType);
         dataSpf = (TextView) getActivity().findViewById(R.id.myDataSpc);
 
-        dataId.setText(preferences.getString(easyShort.fragsPrefs.FRAGPREFS_ID,"Policy No."));
-        dataType.setText(preferences.getString(easyShort.fragsPrefs.FRAGPREFS_TYPE,"Select Type"));
-        dataSpf.setText(preferences.getString(easyShort.fragsPrefs.FRAGPREFS_SPF,"Bank"));
+        final Bundle bundle = getArguments();
+        dataId.setText(bundle.getString(easyShort.fragsPrefs.FRAGPREFS_ID, "Policy No."));
+        dataType.setText(bundle.getString(easyShort.fragsPrefs.FRAGPREFS_TYPE, "Select Type"));
+        dataSpf.setText(bundle.getString(easyShort.fragsPrefs.FRAGPREFS_SPF, "Bank"));
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +47,7 @@ public class mAmtDate_spf_Fragment extends Fragment {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addNew.nextFrag(2);
+                addNew.nextFrag(2,bundle);
             }
         });
     }

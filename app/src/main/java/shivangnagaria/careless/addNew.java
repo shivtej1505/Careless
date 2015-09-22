@@ -29,14 +29,16 @@ public class addNew extends Activity {
         fragmentTransaction.commit();
     }
 
-    public static void nextFrag(int FragmentNo) {
+    public static void nextFrag(int FragmentNo,Bundle bundle) {
         if(FragmentNo == 1) {
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+            mAmtDateFragment.setArguments(bundle);
             fragmentTransaction.replace(R.id.container, mAmtDateFragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         } else if(FragmentNo == 2) {
             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+            pAmtDateFragment.setArguments(bundle);
             fragmentTransaction.replace(R.id.container, pAmtDateFragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
