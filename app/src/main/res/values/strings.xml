@@ -99,5 +99,7 @@
     <string name="patDate">Premium date</string>
     <string name="hello_world">Hello world!</string>
 
+    <!--- change password -->
+    <string name="changePassword">Change password</string>
 
 </resources>

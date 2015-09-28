@@ -4,6 +4,8 @@ public class easyShort {
 
 
     public static String TAG = "CarelessTag";
+    public static int CHECK_DEADLINE_CODE = 0;
+    public static int NOTIFICATION_CODE = 0;
 
     public class prefs {
         // SharedPreference related strings

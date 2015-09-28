@@ -1,6 +1,8 @@
 package shivangnagaria.careless;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -8,6 +10,7 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,6 +21,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class firstRun extends Activity {
 
@@ -71,6 +76,7 @@ public class firstRun extends Activity {
                         Toast.makeText(firstRun.this,"Password didn't match",Toast.LENGTH_SHORT).show();
                         pass.setText(null);
                         passAgain.setText(null);
+                        ansQ.setText(null);
                 } else if(pass.getText().toString().length() < 8 || passAgain.getText().toString().length() < 8 ) {
                     Toast.makeText(firstRun.this, "Minimum password length 8", Toast.LENGTH_SHORT).show();
                     pass.setText(null);
@@ -121,7 +127,8 @@ public class firstRun extends Activity {
             editor.commit();
 
             SQLiteDatabase db = new dbOpenHelper(firstRun.this).getWritableDatabase();
-            new dbOpenHelper(firstRun.this).onCreate(db);
+            dbOpenHelper helper = new dbOpenHelper(firstRun.this);
+            helper.onUpgrade(db, 0, 0);
 
             ContentValues values = new ContentValues();
             values.put(dbOpenHelper.COLUMN_ID,1);
@@ -130,14 +137,27 @@ public class firstRun extends Activity {
             values.put(dbOpenHelper.COLUMN_MDATE,"1995-05-15");
             values.put(dbOpenHelper.COLUMN_PAMOUNT,1001);
             values.put(dbOpenHelper.COLUMN_PDATE,"1995-05-15");
-            values.put(dbOpenHelper.COLUMN_SPCF,"shivang nagaria");
+            values.put(dbOpenHelper.COLUMN_SPCF, "shivang nagaria");
 
             long lol = db.insert(dbOpenHelper.TABLE_NAME,null,values);
             Log.i(easyShort.TAG,"data inserted");
-            Log.i(easyShort.TAG,""+lol);
+            Log.i(easyShort.TAG, "" + lol);
             values.clear();
             db.close();
 
+            AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
+            Intent checkDeadlineIntent = new Intent(getApplicationContext(),checkDeadline.class);
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(SystemClock.currentThreadTimeMillis());
+            calendar.set(Calendar.HOUR_OF_DAY, 23);
+            calendar.set(Calendar.MINUTE,45);
+
+            PendingIntent checkDeadlinePendingIntent = PendingIntent.getBroadcast(
+                    getApplicationContext(),easyShort.CHECK_DEADLINE_CODE,
+                    checkDeadlineIntent,Intent.FILL_IN_ACTION);
+            manager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME,
+                    calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY,checkDeadlinePendingIntent);
             return null;
         }
 
@@ -149,6 +169,7 @@ public class firstRun extends Activity {
     }
 
 
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -176,6 +197,6 @@ public class firstRun extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
 }

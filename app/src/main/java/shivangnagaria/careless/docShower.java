@@ -1,7 +1,9 @@
 package shivangnagaria.careless;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,14 +11,16 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 /**
  * Created on 11/8/15.
  */
 public class docShower extends ListActivity {
 
-    ProgressDialog progressDialog;
-    docAdapter adapter;
+    private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +31,10 @@ public class docShower extends ListActivity {
     protected void onResume() {
         super.onResume();
         new loadData().execute();
-        getListView().setAdapter(adapter);
+        //getListView().setAdapter(adapter);
     }
 
-    private class loadData extends AsyncTask<Void,Void,Void> {
+    private class loadData extends AsyncTask<Void,Void,docAdapter> {
 
         @Override
         protected void onPreExecute() {
@@ -43,8 +47,8 @@ public class docShower extends ListActivity {
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
-            adapter = new docAdapter(docShower.this);
+        protected docAdapter doInBackground(Void... params) {
+            docAdapter adapter = new docAdapter(docShower.this);
             dbOpenHelper myHelper = new dbOpenHelper(docShower.this);
             SQLiteDatabase db = myHelper.getReadableDatabase();
             String[] projection = {
@@ -72,13 +76,16 @@ public class docShower extends ListActivity {
                 } while (readData.moveToNext());
             }
             readData.close();
-            return null;
+            return adapter;
         }
 
         @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
+        protected void onPostExecute(docAdapter adapter) {
+            super.onPostExecute(adapter);
             progressDialog.dismiss();
+            if(adapter != null) {
+                getListView().setAdapter(adapter);
+            }
         }
     }
     @Override
@@ -90,10 +97,32 @@ public class docShower extends ListActivity {
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
 
+        LinearLayout changePasswordDialog = (LinearLayout) getLayoutInflater().
+                inflate(R.layout.change_password_dialog_view, null);
+        EditText passwordField = (EditText) changePasswordDialog.findViewById(R.id.passwordField);
+        EditText passwordFieldConfirm = (EditText) changePasswordDialog.findViewById(R.id.passwordFieldConfirm);
+
         int id = item.getItemId();
         if(id == R.id.action_add_new) {
             Intent jmptoAddNew = new Intent(docShower.this,addNew.class);
             startActivity(jmptoAddNew);
+        }
+        else if(id == R.id.action_settings){
+            final AlertDialog.Builder builder = new AlertDialog.Builder(docShower.this);
+            builder.setTitle(R.string.changePassword).setView(changePasswordDialog)
+                    .setNeutralButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    }).setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Toast.makeText(docShower.this,"Change password",Toast.LENGTH_SHORT).show();
+                    dialogInterface.dismiss();
+                }
+            }).create();
+            builder.show();
         }
         return super.onMenuItemSelected(featureId, item);
     }

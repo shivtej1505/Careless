@@ -81,7 +81,7 @@ public class typeId_Fragment extends Fragment {
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addNew.prevFrag(1);
+                getActivity().finish();
             }
         });
 

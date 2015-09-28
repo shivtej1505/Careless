@@ -29,6 +29,15 @@
         <activity
             android:name=".addNew"
             android:label="Add new doc"/>
+
+        <receiver
+            android:name=".checkDeadline"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.CHECK_DEADLINE">
+                </action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

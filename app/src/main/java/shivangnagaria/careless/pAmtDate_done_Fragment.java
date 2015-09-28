@@ -42,7 +42,7 @@ public class pAmtDate_done_Fragment extends Fragment {
         bundle = getArguments();
         dataId.setText(bundle.getString(easyShort.fragsPrefs.FRAGPREFS_ID,"Policy No."));
         dataType.setText(bundle.getString(easyShort.fragsPrefs.FRAGPREFS_TYPE,"Select Type"));
-        dataSpf.setText(bundle.getString(easyShort.fragsPrefs.FRAGPREFS_SPF,"Bank"));
+        dataSpf.setText(bundle.getString(easyShort.fragsPrefs.FRAGPREFS_SPF, "Bank"));
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,9 +55,11 @@ public class pAmtDate_done_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 new saveOnDB().execute();
-                Toast.makeText(getActivity().getApplicationContext(),"Closing",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), "Closing", Toast.LENGTH_SHORT).show();
+                getActivity().finish();
             }
         });
+
     }
     private class saveOnDB extends AsyncTask<Void,Void,Void> {
 
@@ -76,6 +78,7 @@ public class pAmtDate_done_Fragment extends Fragment {
         protected Void doInBackground(Void... params) {
             SQLiteDatabase db = new dbOpenHelper(getActivity().getApplicationContext()).getWritableDatabase();
             dbOpenHelper helper = new dbOpenHelper(getActivity().getApplicationContext());
+
             ContentValues values = new ContentValues();
             values.put(helper.COLUMN_ID,bundle.getString(easyShort.fragsPrefs.FRAGPREFS_ID,""));
             values.put(helper.COLUMN_TYPE,bundle.getString(easyShort.fragsPrefs.FRAGPREFS_TYPE,""));
@@ -84,6 +87,7 @@ public class pAmtDate_done_Fragment extends Fragment {
             values.put(helper.COLUMN_MDATE,1995-05-15);
             values.put(helper.COLUMN_PAMOUNT,1995-05-15);
             values.put(helper.COLUMN_PDATE, 1000);
+
             long success = db.insert(helper.TABLE_NAME,null,values);
             Log.i(easyShort.TAG,"Success:"+success);
             return null;

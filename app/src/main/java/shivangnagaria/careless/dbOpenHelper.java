@@ -34,6 +34,8 @@ public class dbOpenHelper extends SQLiteOpenHelper {
             COLUMN_PDATE + " DATE " + ", " +
             COLUMN_SPCF + " TEXT NOT NULL " + ");" ;
 
+    final private static String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
+
     final private Context mContext;
 
     public static String[] columns = {COLUMN_ID,COLUMN_TYPE,COLUMN_MAMOUNT,COLUMN_MDATE,
@@ -53,5 +55,7 @@ public class dbOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // TODO: drop table and create table
+        db.execSQL(DROP_TABLE);
+        db.execSQL(CREATE_TABLE);
     }
 }
