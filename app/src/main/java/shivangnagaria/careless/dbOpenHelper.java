@@ -58,4 +58,8 @@ public class dbOpenHelper extends SQLiteOpenHelper {
         db.execSQL(DROP_TABLE);
         db.execSQL(CREATE_TABLE);
     }
+
+    public void dropTable(SQLiteDatabase db){
+        db.execSQL(DROP_TABLE);
+    }
 }

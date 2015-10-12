@@ -24,10 +24,16 @@ public class docAdapter extends BaseAdapter {
         this.mContext = context;
     }
 
+    public List<dbData> getList(){
+        return mDocs;
+    }
     public void add(dbData data) {
         mDocs.add(data);
     }
 
+    public void clear(){
+        mDocs.clear();
+    }
     @Override
     public int getCount() {
         return mDocs.size();

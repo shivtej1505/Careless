@@ -9,11 +9,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
 
 /**
  * Created on 11/8/15.
@@ -21,10 +23,12 @@ import android.widget.Toast;
 public class docShower extends ListActivity {
 
     private ProgressDialog progressDialog;
+    docAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         progressDialog = new ProgressDialog(docShower.this);
+        adapter = new docAdapter(docShower.this);
     }
 
     @Override
@@ -44,11 +48,11 @@ public class docShower extends ListActivity {
             progressDialog.setIndeterminate(false);
             progressDialog.setCancelable(false);
             progressDialog.show();
+            adapter.clear();
         }
 
         @Override
         protected docAdapter doInBackground(Void... params) {
-            docAdapter adapter = new docAdapter(docShower.this);
             dbOpenHelper myHelper = new dbOpenHelper(docShower.this);
             SQLiteDatabase db = myHelper.getReadableDatabase();
             String[] projection = {
@@ -75,6 +79,7 @@ public class docShower extends ListActivity {
                     adapter.add(data);
                 } while (readData.moveToNext());
             }
+            Log.i(easyShort.TAG,""+adapter.getCount());
             readData.close();
             return adapter;
         }
@@ -84,6 +89,11 @@ public class docShower extends ListActivity {
             super.onPostExecute(adapter);
             progressDialog.dismiss();
             if(adapter != null) {
+                dbData data;
+                for(int i=0;i<adapter.getCount();i++){
+                    data = adapter.getItem(i);
+                    Log.i(easyShort.TAG,"shit"+data.getDataId());
+                }
                 getListView().setAdapter(adapter);
             }
         }

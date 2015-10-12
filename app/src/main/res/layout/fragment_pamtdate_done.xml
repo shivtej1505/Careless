@@ -82,12 +82,18 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-
-        <EditText
-            android:layout_marginTop="100dp"
-            android:hint="@string/patDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/pDateChoose"
+            android:layout_marginTop="34dp"
+            android:text="@string/patDate"
+            android:paddingTop="12dp"
+            android:padding="10dp"
+            android:background="@color/grey_100"
+            android:gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/objId"
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:id="@+id/cancelFrag_done"

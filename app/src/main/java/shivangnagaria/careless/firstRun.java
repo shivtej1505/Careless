@@ -126,11 +126,12 @@ public class firstRun extends Activity {
             editor.putBoolean(easyShort.prefs.FIRST_RUN_DONE, true);
             editor.commit();
 
-            SQLiteDatabase db = new dbOpenHelper(firstRun.this).getWritableDatabase();
             dbOpenHelper helper = new dbOpenHelper(firstRun.this);
+            SQLiteDatabase db = helper.getWritableDatabase();
             helper.onUpgrade(db, 0, 0);
 
             ContentValues values = new ContentValues();
+            values.clear();
             values.put(dbOpenHelper.COLUMN_ID,1);
             values.put(dbOpenHelper.COLUMN_TYPE,"Fixed deposit");
             values.put(dbOpenHelper.COLUMN_MAMOUNT,1001);
@@ -142,8 +143,8 @@ public class firstRun extends Activity {
             long lol = db.insert(dbOpenHelper.TABLE_NAME,null,values);
             Log.i(easyShort.TAG,"data inserted");
             Log.i(easyShort.TAG, "" + lol);
-            values.clear();
             db.close();
+            helper.close();
 
             AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
             Intent checkDeadlineIntent = new Intent(getApplicationContext(),checkDeadline.class);
